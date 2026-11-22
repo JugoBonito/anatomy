@@ -14,11 +14,11 @@ export function glScript() {
 }
 
 export function turnScript() {
-  return strip("turn.mjs");
+  return strip("turn-core.mjs") + "\n" + strip("turn.mjs").replace(/^import[\s\S]*?;\n?/gm, "");
 }
 
 export function fixedScript() {
-  return strip("turn-fixed.mjs") + "\n" + strip("canvas-painter.mjs");
+  return strip("turn-fixed-core.mjs") + "\n" + strip("turn-fixed.mjs").replace(/^import[\s\S]*?;\n?/gm, "") + "\n" + strip("canvas-painter.mjs");
 }
 
 export function glSharedScript() {
